@@ -1,15 +1,21 @@
-NAME_CLIENT = client1
+NAME = minichat
 
-NAME_SERVER = client2
-
-SRCS1 = $(wildcard ./src/client1/*.cpp)
-
-SRCS2 = $(wildcard ./src/client2/*.cpp)
+SRCS =	$(wildcard ./src/*.cpp) \
+		$(wildcard ./classes/*.cpp) \
+		./main.cpp \
 
 CC = g++
 
-CFLAGS = -Wall -Wextra
+LDFLAGS = -pthread  -lpthread
 
-$(NAME_CLIENT): $(SRCS)
+CFLAGS = -g -Wall -Wextra
 
+all: $(NAME)
 
+$(NAME): $(SRCS)
+	$(CC) $(CFLAGS) $(SRCS) $(LDFLAGS) -o $(NAME)
+
+clean:
+	rm -f $(NAME)
+
+re: clean all

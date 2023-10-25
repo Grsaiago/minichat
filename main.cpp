@@ -1,9 +1,7 @@
-#include "./include/TcpIpSocket.hpp"
+#include "./include/ATcpIpSocket.hpp"
 
 int	main(void)
 {
-	TcpIpSocket	sock(IPV4, 1234, 0);
-	sock.sockListen();
-	sock.sockAccept();
+	std::cout << "It's executing" << std::endl;
 	return (0);
 }
