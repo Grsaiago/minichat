@@ -2,6 +2,10 @@
 
 int	main(void)
 {
-	std::cout << "It's executing" << std::endl;
+	ATcpIpSocket	sock(IPV4, 1234, 0);
+
+	sock.initSocket();
+	sock.listenSocket();
+	sock.acceptOnSocket();
 	return (0);
 }
