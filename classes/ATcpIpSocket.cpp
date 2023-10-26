@@ -31,7 +31,7 @@ void	ATcpIpSocket::initSocket(void)
 		throw new SocketFailedExcpetion("Failed to setup socket\n");
 	socketConf.sin_family = this->_ipProtocol;
 	socketConf.sin_port = ntohs(this->_port);
-	socketConf.sin_addr.s_addr = ntohs(this->_ipAddress);
+	socketConf.sin_addr.s_addr = ntohl(this->_ipAddress);
 
 	if (bind(this->_sockFd, (const sockaddr *)&socketConf, sizeof(socketConf)))
 		throw new SocketFailedExcpetion("Failed to bind socket\n");
